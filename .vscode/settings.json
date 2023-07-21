@@ -1,3 +1,4 @@
 {
-  "editor.defaultFormatter": "rome.rome"
+  "editor.defaultFormatter": "rome.rome",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
