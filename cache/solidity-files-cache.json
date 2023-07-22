@@ -2120,6 +2120,47 @@
         }
       }
     },
+    "src/contracts/Multicall3.sol": {
+      "lastModificationDate": 1690007966375,
+      "contentHash": "43ac17afd1ecf632c703e806820757d7",
+      "sourceName": "src/contracts/Multicall3.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "=0.8.15",
+      "artifacts": {
+        "Multicall3": {
+          "0.8.15+commit.e14f2714.Darwin.appleclang": "Multicall3.sol/Multicall3.json"
+        }
+      }
+    },
     "src/contracts/Optimist.sol": {
       "lastModificationDate": 1689978666199,
       "contentHash": "ff3a184720a9721736a8a49101bfd3e7",
