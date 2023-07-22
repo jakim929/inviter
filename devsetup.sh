@@ -1,9 +1,0 @@
-cast rpc anvil_impersonateAccount 0x60c5C9c98bcBd0b0F2fD89B24c16e533BaA8CdA3
-
-cast rpc anvil_setBalance 0x60c5C9c98bcBd0b0F2fD89B24c16e533BaA8CdA3 0x021e19e0c9bab2400000\
-
-cast rpc anvil_setBalance 0xf870AFf212DBB773a23ff8467003e8C882955dAA 0x021e19e0c9bab2400000\
-
-cast send 0x073031A1E1b8F5458Ed41Ce56331F5fd7e1de929 "setInviteCounts(address[],uint256)" [0xf870AFf212DBB773a23ff8467003e8C882955dAA] 10 --from 0x60c5C9c98bcBd0b0F2fD89B24c16e533BaA8CdA3 --unlocked
-
-cast rpc evm_setIntervalMining 2

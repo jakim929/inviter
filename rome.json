@@ -22,8 +22,7 @@
       "suspicious": {
         "noArrayIndexKey": "off",
         "noExplicitAny": "off"
-      },
-      "style": {}
+      }
     }
   },
   "javascript": {
