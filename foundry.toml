@@ -8,4 +8,4 @@ lib = ["node_modules", "lib"]
 
 # allow_paths = ["../../node_modules"]
 
-remappings = ["forge-std/=/lib/forge-std/", "@eth-optimism/=node_modules/@eth-optimism/", "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/", "@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/"]
+remappings = ["@eth-optimism/=node_modules/@eth-optimism/", "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/", "@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/"]
