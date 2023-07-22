@@ -27,7 +27,7 @@ export const CommitInvite = ({
           }
         }}
       >
-        Commit invite
+        Commit Invite
       </button>
     </div>
   )
