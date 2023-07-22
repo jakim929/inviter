@@ -1,11 +1,10 @@
 [profile.default]
 # Keep this version in sync with package.json and evmts.config.ts
-solc = "0.8.15"
+solc = "0.8.19"
 src = "src/contracts"
 test = "test"
 out = "artifacts"
-lib = ["node_modules", "lib"]
+lib = ["node_modules", "../../node_modules", "lib"]
 
-# allow_paths = ["../../node_modules"]
+allow_paths = ["../../node_modules"]
 
-remappings = ["@eth-optimism/=node_modules/@eth-optimism/", "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/", "@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/"]
