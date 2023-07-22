@@ -1,6 +1,6 @@
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { OptimistInviter } from '../contracts/OptimistInviter.sol'
-import { Address, Hex, encodePacked, keccak256 } from 'viem'
+import { Address, Hex, encodeAbiParameters, keccak256 } from 'viem'
 
 export const CommitInvite = ({
   signature,
@@ -8,7 +8,10 @@ export const CommitInvite = ({
   onSubmit,
 }: { signature: Hex; recipient: Address; onSubmit: (hash: Hex) => void }) => {
   const commitHash = keccak256(
-    encodePacked(['address', 'bytes'], [recipient, signature]),
+    encodeAbiParameters(
+      [{ type: 'address' }, { type: 'bytes' }],
+      [recipient, signature],
+    ),
   )
   const { config, error } = usePrepareContractWrite({
     ...OptimistInviter.write().commitInvite(commitHash),
