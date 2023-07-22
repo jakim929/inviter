@@ -9,20 +9,24 @@
         "localContracts": {
           "contracts": [
             {
-              "name": "WagmiMintExample",
+              "name": "Optimist",
               "addresses": {
-                "1": "0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2",
-                "5": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "10": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "56": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "137": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "250": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "288": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "324": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "420": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "42161": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "80001": "0x1df10ec981ac5871240be4a94f250dd238b77901",
-                "421613": "0x1df10ec981ac5871240be4a94f250dd238b77901"
+                "10": "0x2335022c740d17c2837f9C884Bfe4fFdbf0A95D5",
+                "420": "0x2335022c740d17c2837f9C884Bfe4fFdbf0A95D5"
+              }
+            },
+            {
+              "name": "AttestationStation",
+              "addresses": {
+                "10": "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77",
+                "420": "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77"
+              }
+            },
+            {
+              "name": "OptimistInviter",
+              "addresses": {
+                "10": "0x073031A1E1b8F5458Ed41Ce56331F5fd7e1de929",
+                "420": "0x073031A1E1b8F5458Ed41Ce56331F5fd7e1de929"
               }
             }
           ]
