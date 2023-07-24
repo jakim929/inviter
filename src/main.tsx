@@ -12,12 +12,9 @@ import { ErrorPage } from './pages/ErrorPage'
 
 const router = createBrowserRouter([
   {
-    path: '/invite',
+    path: '/',
     element: <InvitePage />,
-  },
-  {
-    path: '/accept',
-    element: <div>Hello world!</div>,
+    errorElement: <ErrorPage />,
   },
 ])
 
