@@ -4,9 +4,8 @@
       {
         "name": "@evmts/ts-plugin",
         "compiler": {
-          "foundryProject": true
+          "foundryProject": false
         },
-        "foundry": false,
         "localContracts": {
           "contracts": [
             {
