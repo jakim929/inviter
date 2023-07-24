@@ -6,6 +6,7 @@
         "compiler": {
           "foundryProject": true
         },
+        "foundry": false,
         "localContracts": {
           "contracts": [
             {
