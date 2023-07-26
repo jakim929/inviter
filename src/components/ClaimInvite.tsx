@@ -3,6 +3,7 @@ import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { OptimistInviter } from '../contracts/OptimistInviter.sol'
 import { Optimist } from '../contracts/Optimist.sol'
 import { Multicall3 } from '../contracts/Multicall3.sol'
+import { Button } from '@/components/ui/button'
 
 export const ClaimInvite = ({
   inviter,
@@ -49,8 +50,7 @@ export const ClaimInvite = ({
 
   return (
     <div>
-      <button
-        type='button'
+      <Button
         onClick={async () => {
           if (writeAsync) {
             const { hash } = await writeAsync()
@@ -59,7 +59,7 @@ export const ClaimInvite = ({
         }}
       >
         Claim invite and mint for recipient
-      </button>
+      </Button>
     </div>
   )
 }

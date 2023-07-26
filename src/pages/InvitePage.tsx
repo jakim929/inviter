@@ -2,8 +2,6 @@ import { Address, useAccount, useContractRead } from 'wagmi'
 import { OptimistInviter } from '../contracts/OptimistInviter.sol'
 import { InviteFlow } from '../components/InviteFlow'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useState } from 'react'
-import { Hex } from 'viem'
 
 export const InvitePage = () => {
   const { address, isConnected } = useAccount()

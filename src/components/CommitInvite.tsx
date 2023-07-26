@@ -1,6 +1,7 @@
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { OptimistInviter } from '../contracts/OptimistInviter.sol'
 import { Address, Hex, encodeAbiParameters, keccak256 } from 'viem'
+import { Button } from '@/components/ui/button'
 
 export const CommitInvite = ({
   signature,
@@ -21,8 +22,7 @@ export const CommitInvite = ({
 
   return (
     <div>
-      <button
-        type='button'
+      <Button
         onClick={async () => {
           if (writeAsync) {
             const { hash } = await writeAsync()
@@ -31,7 +31,7 @@ export const CommitInvite = ({
         }}
       >
         Commit Invite
-      </button>
+      </Button>
     </div>
   )
 }

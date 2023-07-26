@@ -3,6 +3,7 @@ import { OptimistInviter } from '../contracts/OptimistInviter.sol'
 import { useState } from 'react'
 import { randomBytes } from '@stablelib/random'
 import { Address, Hex, bytesToHex } from 'viem'
+import { Button } from '@/components/ui/button'
 
 const domain = {
   name: 'OptimistInviter',
@@ -42,8 +43,7 @@ export const CreateInvite = ({
 
   return (
     <div>
-      <button
-        type='button'
+      <Button
         onClick={async () => {
           if (isConnected && address) {
             const result = await signTypedDataAsync()
@@ -52,7 +52,7 @@ export const CreateInvite = ({
         }}
       >
         Create Invite
-      </button>
+      </Button>
     </div>
   )
 }

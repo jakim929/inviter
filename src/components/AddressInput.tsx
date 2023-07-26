@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { Address, isAddress } from 'viem'
 
@@ -14,9 +15,9 @@ export const AddressInput = ({
         type='text'
         onChange={(e) => setAddress(e.target.value as Address)}
       />
-      <button onClick={() => isAddress(addr || '') && onSubmit(addr)}>
+      <Button onClick={() => addr && isAddress(addr || '') && onSubmit(addr)}>
         Choose Recipient
-      </button>
+      </Button>
     </div>
   )
 }
