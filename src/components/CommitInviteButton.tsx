@@ -3,7 +3,7 @@ import { OptimistInviter } from '../contracts/OptimistInviter.sol'
 import { Address, Hex, encodeAbiParameters, keccak256 } from 'viem'
 import { Button } from '@/components/ui/button'
 
-export const CommitInvite = ({
+export const CommitInviteButton = ({
   signature,
   recipient,
   onSubmit,
@@ -23,7 +23,9 @@ export const CommitInvite = ({
   return (
     <div>
       <Button
-        onClick={async () => {
+        variant='outline'
+        onClick={async (e) => {
+          e.stopPropagation()
           if (writeAsync) {
             const { hash } = await writeAsync()
             onSubmit(hash)

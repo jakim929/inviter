@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { randomBytes } from '@stablelib/random'
 import { Address, Hex, bytesToHex } from 'viem'
 import { Button } from '@/components/ui/button'
+import { useStore } from '@/store'
 
 const domain = {
   name: 'OptimistInviter',
@@ -22,13 +23,10 @@ const types = {
 
 const createNonce = () => bytesToHex(randomBytes(32))
 
-export const CreateInvite = ({
-  onSubmit,
-}: {
-  onSubmit: (signature: Hex, nonce: Hex) => void
-}) => {
+export const CreateInviteButton = () => {
+  const addInviteRequest = useStore((state) => state.addInviteRequest)
   const { address, isConnected } = useAccount()
-  const [nonce] = useState(createNonce())
+  const [nonce, setNonce] = useState(createNonce())
   const message = {
     issuer: address as Address,
     nonce,
@@ -42,17 +40,17 @@ export const CreateInvite = ({
     })
 
   return (
-    <div>
-      <Button
-        onClick={async () => {
-          if (isConnected && address) {
-            const result = await signTypedDataAsync()
-            result && onSubmit(result, nonce)
-          }
-        }}
-      >
-        Create Invite
-      </Button>
-    </div>
+    <Button
+      onClick={async () => {
+        if (isConnected && address) {
+          const result = await signTypedDataAsync()
+          result &&
+            addInviteRequest({ nonce, signature: result, issuer: address })
+          setNonce(createNonce())
+        }
+      }}
+    >
+      Create invite
+    </Button>
   )
 }

@@ -5,14 +5,14 @@ import { Optimist } from '../contracts/Optimist.sol'
 import { Multicall3 } from '../contracts/Multicall3.sol'
 import { Button } from '@/components/ui/button'
 
-export const ClaimInvite = ({
-  inviter,
+export const MintToRecipientButton = ({
+  issuer,
   signature,
   recipient,
   nonce,
   onSubmit,
 }: {
-  inviter: Address
+  issuer: Address
   signature: Hex
   recipient: Address
   nonce: Hex
@@ -21,7 +21,7 @@ export const ClaimInvite = ({
   const claimInviteCallData = encodeFunctionData({
     ...OptimistInviter.write().claimInvite(
       recipient,
-      { issuer: inviter, nonce },
+      { issuer, nonce },
       signature,
     ),
   })
@@ -51,14 +51,17 @@ export const ClaimInvite = ({
   return (
     <div>
       <Button
-        onClick={async () => {
+        variant='outline'
+        onClick={async (e) => {
+          e.stopPropagation()
+
           if (writeAsync) {
             const { hash } = await writeAsync()
             onSubmit(hash)
           }
         }}
       >
-        Claim invite and mint for recipient
+        Mint to recipient
       </Button>
     </div>
   )
