@@ -1,5 +1,7 @@
 import { Address, Hex } from 'viem'
 import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
+
 import { produce } from 'immer'
 
 export type SignedInvite = {
@@ -26,53 +28,61 @@ type Store = {
   ) => void
 }
 
-export const useStore = create<Store>()((set) => ({
-  inviteRequests: [],
-  addInviteRequest: (signedInvite: SignedInvite) =>
-    set(
-      produce<Store>((draft) => {
-        draft.inviteRequests.push(signedInvite)
-      }),
-    ),
-  removeInviteRequest: (nonce: Hex) =>
-    set(
-      produce<Store>((draft) => {
-        const inviteRequestIndex = draft.inviteRequests.findIndex(
-          (el) => el.nonce === nonce,
-        )
-        draft.inviteRequests.splice(inviteRequestIndex)
-      }),
-    ),
-  setRecipient: (nonce: Hex, recipient: Address) =>
-    set(
-      produce<Store>((draft) => {
-        const inviteRequestIndex = draft.inviteRequests.findIndex(
-          (el) => el.nonce === nonce,
-        )
-        draft.inviteRequests[inviteRequestIndex].recipient = recipient
-      }),
-    ),
-  setCommitTransactionHash: (nonce: Hex, commitTransactionHash: Hex) =>
-    set(
-      produce<Store>((draft) => {
-        const inviteRequestIndex = draft.inviteRequests.findIndex(
-          (el) => el.nonce === nonce,
-        )
-        draft.inviteRequests[inviteRequestIndex].commitTransactionHash =
-          commitTransactionHash
-      }),
-    ),
-  setClaimAndMintTransactionHash: (
-    nonce: Hex,
-    claimAndMintTransactionHash: Hex,
-  ) =>
-    set(
-      produce<Store>((draft) => {
-        const inviteRequestIndex = draft.inviteRequests.findIndex(
-          (el) => el.nonce === nonce,
-        )
-        draft.inviteRequests[inviteRequestIndex].claimAndMintTransactionHash =
-          claimAndMintTransactionHash
-      }),
-    ),
-}))
+export const useStore = create<Store>()(
+  persist(
+    (set) => ({
+      inviteRequests: [],
+      addInviteRequest: (signedInvite: SignedInvite) =>
+        set(
+          produce<Store>((draft) => {
+            draft.inviteRequests.push(signedInvite)
+          }),
+        ),
+      removeInviteRequest: (nonce: Hex) =>
+        set(
+          produce<Store>((draft) => {
+            const inviteRequestIndex = draft.inviteRequests.findIndex(
+              (el) => el.nonce === nonce,
+            )
+            draft.inviteRequests.splice(inviteRequestIndex)
+          }),
+        ),
+      setRecipient: (nonce: Hex, recipient: Address) =>
+        set(
+          produce<Store>((draft) => {
+            const inviteRequestIndex = draft.inviteRequests.findIndex(
+              (el) => el.nonce === nonce,
+            )
+            draft.inviteRequests[inviteRequestIndex].recipient = recipient
+          }),
+        ),
+      setCommitTransactionHash: (nonce: Hex, commitTransactionHash: Hex) =>
+        set(
+          produce<Store>((draft) => {
+            const inviteRequestIndex = draft.inviteRequests.findIndex(
+              (el) => el.nonce === nonce,
+            )
+            draft.inviteRequests[inviteRequestIndex].commitTransactionHash =
+              commitTransactionHash
+          }),
+        ),
+      setClaimAndMintTransactionHash: (
+        nonce: Hex,
+        claimAndMintTransactionHash: Hex,
+      ) =>
+        set(
+          produce<Store>((draft) => {
+            const inviteRequestIndex = draft.inviteRequests.findIndex(
+              (el) => el.nonce === nonce,
+            )
+            draft.inviteRequests[
+              inviteRequestIndex
+            ].claimAndMintTransactionHash = claimAndMintTransactionHash
+          }),
+        ),
+    }),
+    {
+      name: 'inviter-requester-store', // name of the item in the storage (must be unique)
+    },
+  ),
+)

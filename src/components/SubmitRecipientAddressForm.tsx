@@ -98,7 +98,7 @@ export const SubmitRecipientAddressForm = ({
           )}
         />
         <Button className='self-end' type='submit' disabled={isSubmitLoading}>
-          {isSubmitLoading ? 'Loading...' : 'Commit invite'}
+          {isSubmitLoading ? 'Loading...' : 'Invite recipient'}
         </Button>
       </form>
     </Form>
